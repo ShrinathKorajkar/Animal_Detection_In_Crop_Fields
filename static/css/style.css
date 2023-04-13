@@ -1,0 +1,69 @@
+.text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.bg-image{
+    background-image: url('../assets/images/farm6.png');
+    background-color: #b6c957; /* Used if the image is unavailable */
+    height: 300px;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.index-card{
+    margin-top: -280px;
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(30px);
+}
+
+.home{
+    background-image: url(../assets/images/farm.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.home-content{
+    background: hsla(0, 0%, 100%, 0.6);
+}
+
+.hr-line{
+    height: 3px;
+    border: none;
+    color: #000000;
+    background-color: #000000;
+}
+
+#photo {
+    width: 100%;
+    height: 500px;
+    background-color: #666;
+}
+
+.pressStart{
+    animation: growshrink 2s linear infinite alternate;
+}
+
+@keyframes growshrink {
+    from{        
+        font-size: 2.5rem;
+    }
+    to{      
+        font-size: 2.3rem;
+    }
+}
+
+.alert-custom{
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
+/* Dark Olive Green (#556B2F) and Saddle Brown (#8B4513)
+Olive Green (#6B8E23) and Sienna (#A0522D)
+Forest Green (#228B22) and Chocolate (#D2691E)
+Lime Green (#32CD32) and Peru (#CD853F)
+Hunter Green (#355E3B) and Tan (#D2B48C) */

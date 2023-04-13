@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block navcontent %}
+<a class="nav-link me-5 mx-2" href="/home">Home</a>
+{% endblock navcontent %} {% block content %}
+<section style="height: 90vh">
+  <div class="container-fluid" style="height: 100%">
+    <div class="row" style="height: 100%">
+      <div class="col-md-2 d-flex justify-content-center align-items-center">
+        <div class="text-center ms-4">
+          <h1 class="lh-lg">Animal Detection</h1>
+        </div>
+      </div>
+      <div class="col-md-8 d-flex justify-content-center align-items-center">
+        <div class="container">
+          <div class="card mx-3">
+            <div class="card-body bg-secondary position-relative text-center">
+              <video autoplay id="videoElement" style="display: none"></video>
+              <canvas id="canvas" style="display: none"></canvas>
+              <img id="photo" />
+              <div
+                class="pressStart position-absolute top-50 start-50 translate-middle text-light"
+              >
+                Press Start to Start Detecting Animal
+              </div>
+              <div
+                id="elem"
+                style="display: none"
+                width="400"
+                height="400"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-md-2 d-flex justify-content-center align-items-center my-4"
+      >
+        <div class="d-grid gap-5 col-10 mx-auto me-md-5">
+          <button
+            type="button"
+            class="btn btn-outline-dark btn-lg rounded-pill"
+            id="startVid"
+          >
+            START
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-dark btn-lg rounded-pill"
+            id="stopVid"
+          >
+            STOP
+          </button>
+          <a
+            href="/home"
+            class="btn btn-outline-dark btn-lg rounded-pill"
+            role="button"
+          >
+            HOME
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

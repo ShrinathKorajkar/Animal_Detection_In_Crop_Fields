@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% block navcontent %}
+<a class="nav-link mx-2" href="#about">About</a>
+<a class="nav-link me-5 mx-2" href="/viewreport">View Report</a>
+{% endblock navcontent %} {% block content %}
+<section class="home">
+  <div class="container py-4">
+    <div class="card home-content text-center text-dark">
+      <div class="card-body">
+        <h1 class="display-4 fw-normal">Hello {{ session.username }}</h1>
+        <hr class="my-4 fw-semibold hr-line" />
+        <p class="lead text-justify fw-medium">
+          Welcome to Crop Guard - The Animal Detection Center. We are dedicated
+          to providing accurate animal detection and reporting for your crop
+          fields. Our advanced technology and expert team ensures that you get
+          the most out of your farming experience. Our platform is designed to
+          help farmers and agricultural professionals quickly identify and
+          respond to animal threats that can damage crops, reducing yield and
+          profitability.
+        </p>
+        <a class="btn btn-dark btn-lg" href="/detect" role="button"
+          >Start Detecting</a
+        >
+      </div>
+    </div>
+    <div class="card home-content mt-5" id="about">
+      <div class="card-body">
+        <h2><span class="badge bg-dark">About Us</span></h2>
+      </div>
+      <div class="card mt-3 mx-3">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="{{ url_for('static', filename='assets/images/farm5.jpg') }}"
+              class="img-fluid rounded-start"
+              alt="image"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Our Aim</h5>
+              <p class="card-text text-justify">
+                We are a team of passionate individuals who are committed to
+                helping farmers save their crops from damage caused by wild
+                animals. Our animal detection project is designed to detect and
+                deter animals from entering crop fields using advanced
+                technologies and machine learning algorithms. Crop damage caused
+                by animals is one of the major threats in reducing the crop
+                yield. Traditional methods followed by farmers are not that
+                affective and it is not feasible to hire guards to keep an eye
+                on crops. Since safety of both human and animal is equally
+                vital, it is important to protect the crops from damage caused
+                by animals and divert them without any harm. Our project is
+                developed to help hundreds of farmers to protect their crops. We
+                encourage you to explore our website and learn more about our
+                animal detection project. If you have any questions, comments,
+                or suggestions, please don't hesitate to get in touch with us.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card my-5 mx-3">
+        <div class="row g-0">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Our System</h5>
+              <p class="card-text text-justify">
+                Our system uses advanced computer vision algorithms and machine
+                learning techniques to detect and classify animals in real-time,
+                providing accurate information about the presence and location
+                of any animal threats. The system monitors entire farm through a
+                camera which will be recording the surroundings and play
+                appropriate sounds when animals are detected to drive them away
+                from field. This allows farmers to take action quickly,
+                preventing or minimizing crop damage and reducing the need for
+                expensive and harmful chemical pest control methods. Also
+                traditional methods for preventing the trespassing of animals is
+                either by humans which is a common practice or shocked by
+                electric fences where there is a risk of fire.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="{{ url_for('static', filename='assets/images/farm7.png') }}"
+              class="img-fluid rounded-start"
+              alt="image"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content%}

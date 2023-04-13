@@ -1,0 +1,268 @@
+{% extends "base.html" %} {% block navcontent %}
+<a
+  class="nav-link me-5 mx-2"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  >Register</a
+>
+{% endblock %} {% block content %}
+<section class="h-100" style="background-color: #eeeeee">
+  <div class="p-5 bg-image"></div>
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black index-card">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <img
+                    src="{{ url_for('static', filename='assets/images/logo.png') }}"
+                    style="height: 150px"
+                    alt="logo"
+                  />
+                  <h4 class="mt-2 mb-5 pb-1">Welcome to CropGuard</h4>
+                </div>
+                <form action="/logIn" method="post">
+                  <p>Please login to your account</p>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example11"
+                      >Username</label
+                    >
+                    <input
+                      type="text"
+                      id="loginUsername"
+                      class="form-control shadow-none border border-dark"
+                      name="loginUsername"
+                    />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example22"
+                      >Password</label
+                    >
+                    <div class="input-group">
+                      <input
+                        type="password"
+                        id="loginPassword"
+                        class="form-control shadow-none border border-dark"
+                        name="loginPassword"
+                      />
+                      <span
+                        class="border border-dark row align-items-center me-auto rounded-end"
+                        id="eyebox"
+                      >
+                        <i class="bi bi-eye-fill"></i
+                      ></span>
+                    </div>
+                  </div>
+
+                  <div class="text-center py-1 my-5">
+                    <div class="d-grid col mx-auto">
+                      <button class="btn btn-dark mb-3" type="Submit">
+                        Log in
+                      </button>
+                      <a class="text-muted" href="#">Forgot password?</a>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex align-items-center justify-content-center pb-4"
+                  >
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Create new
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center bg-dark">
+              <div class="text-light px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-5">Protect your crops, save your harvest</h4>
+                <p class="small mb-1 text-justify">
+                  Don't let animals ruin your hard work. We are dedicated to
+                  helping farmers and agricultural professionals detect and
+                  prevent damage caused by animals in crop fields. Our
+                  cutting-edge technology and expert team provide reliable and
+                  accurate detection services, helping to minimize losses and
+                  ensure a successful harvest.
+                </p>
+                <p class="small mb-0 text-justify">
+                  Our mission is to make crop protection more efficient and
+                  effective, while also promoting environmentally-friendly
+                  practices. Join us in our efforts to safeguard crops and
+                  secure the future of agriculture.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div
+    class="modal fade px-5 modal-lg"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content p-md-2">
+        <div class="modal-header">
+          <div class="mx-auto">
+            <h1 class="modal-title fs-3" id="exampleModalLabel">
+              Create Account
+            </h1>
+          </div>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form action="/signIn" method="post" id="signForm">
+            <div class="row mb-4 has-validation">
+              <label for="inputEmail3" class="col-sm-2 col-form-label"
+                >Username</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control shadow-none border border-dark"
+                  id="signInUsername"
+                  name="signInUsername"
+                />
+                <div class="invalid-feedback">Enter more than 4 characters</div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label"
+                >Password</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="password"
+                  class="form-control shadow-none border border-dark"
+                  id="signInPassword"
+                  name="signInPassword"
+                />
+                <div class="invalid-feedback">
+                  Password must contain at least one Uppercase, Lowercase,
+                  Special characters, a Number, and atleast 6 characters.
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3 justify-content-center align-items-center">
+              <label for="inputPassword4" class="col-sm-2 col-form-label"
+                >Confirm Password</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="password"
+                  class="form-control shadow-none border border-dark"
+                  id="signInCPassword"
+                  name="signInCPassword"
+                />
+                <div class="invalid-feedback">Passwords do not match!</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="d-none text-danger text-center mb-2" id="formValid">
+                Please fill complete form correctly
+              </div>
+              <div class="d-grid d-md-flex justify-content-md-center">
+                <button
+                  type="submit"
+                  class="btn btn-dark btn-lg"
+                  id="signSubmit"
+                >
+                  Register
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="alert-custom">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div
+          class="alert alert-success alert-dismissible fade hide p-1 border border-dark"
+          id="alertBox"
+          role="alert"
+        >
+          <div class="ms-2" id="alert-body">
+            <i class="bi bi-exclamation-triangle d-none"></i>
+            <i class="bi bi-emoji-laughing"></i
+            ><strong class="mx-2">Success!</strong
+            ><span>Sign Up successful</span>
+          </div>
+          <button
+            type="button"
+            class="btn-close p-2"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  let flag = "{{ flag }}";
+  let alert = document.getElementById("alertBox");
+  let alertBody = document.getElementById("alert-body");
+  window.onload = () => {
+    exclamationTrainagle = alertBody.children[0];
+    laughingEmogi = alertBody.children[1];
+    header = alertBody.children[2];
+    message = alertBody.children[3];
+    if (flag == "loginFail") {
+      alert.classList.add("show");
+      alert.classList.remove("alert-success");
+      alert.classList.add("alert-danger");
+      exclamationTrainagle.classList.remove("d-none");
+      laughingEmogi.classList.add("d-none");
+      header.innerText = "Login Fail!";
+      message.innerText = "Incorrect user name or password";
+    } else if (flag == "exists") {
+      alert.classList.add("show");
+      alert.classList.remove("alert-success");
+      alert.classList.add("alert-danger");
+      exclamationTrainagle.classList.remove("d-none");
+      laughingEmogi.classList.add("d-none");
+      header.innerText = "Sign Up Fail!";
+      message.innerText = "User already exists";
+    } else if (flag == "signSuccess") {
+      alert.classList.add("show");
+      alert.classList.add("alert-success");
+      alert.classList.remove("alert-danger");
+      exclamationTrainagle.classList.add("d-none");
+      laughingEmogi.classList.remove("d-none");
+      header.innerText = "Success!";
+      message.innerText = "Succesfully signed in";
+    }
+    if (flag !== "none") {
+      setTimeout(() => {
+        alert.classList.remove("show");
+      }, 3000);
+    }
+  };
+</script>
+{% endblock content %}

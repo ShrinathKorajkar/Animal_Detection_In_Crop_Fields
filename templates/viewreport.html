@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block navcontent %}
+<a class="nav-link mx-2 me-5" href="/home">Home</a>
+{% endblock navcontent %} {% block content %}
+<section>
+  <div class="container mt-3">
+    <h2 class="text-center">View Report</h2>
+    <div
+      class="row text-center justify-content-center align-items-center gy-3 py-4 mx-auto my-2"
+    >
+      <div class="col-md-3">
+        <div class="input-group">
+          <input
+            class="form-control shadow-none border border-dark"
+            type="text"
+            id="searchTableInp"
+            placeholder="Search by animal name..."
+          />
+          <i class="bi bi-search input-group-text border border-dark"></i>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <input
+          class="form-control shadow-none border border-dark"
+          type="date"
+          id="datepicker"
+        />
+      </div>
+      <div class="col-md-2 d-grid">
+        <button class="btn btn-outline-dark" id="clearBtn">Clear Filter</button>
+      </div>
+      <div class="col-md-2 d-grid">
+        <button class="btn btn-outline-dark" id="sortTableBtn">
+          Sort By Date
+        </button>
+      </div>
+      <div class="col-md-2 d-grid">
+        <button id="downloadReportBtn" class="btn btn-outline-dark">
+          Download Report
+        </button>
+      </div>
+    </div>
+    <div class="container table-responsive">
+      <table
+        class="table table-striped table-bordered table-dark table-hover border-dark align-middle"
+        id="reportTable"
+      >
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Animal Name</th>
+            <th>Date of Detection</th>
+            <th>Time of Detection</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          {% for row in report %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row.animal_name }}</td>
+            <td>{{ row.date_of_detection }}</td>
+            <td>{{ row.time_of_detection }}</td>
+            <td>
+              <a
+                type="button"
+                href="/delete/{{row.sno}}"
+                class="btn btn-outline-light btn-sm"
+                >Delete</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="container row justify-content-end align-items-center text-center my-2 mx-auto"
+    >
+      <div class="col-md-3 d-grid">
+        <a href="/deleteAll" class="btn btn-outline-dark">Delete All</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
