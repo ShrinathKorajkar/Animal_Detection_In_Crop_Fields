@@ -3,7 +3,8 @@ from flask import Flask, request, render_template, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from yolov7model import get_yolov7, predict, base64_to_image, image_to_base64
-
+import smtplib, ssl
+from email.message import EmailMessage
 
 app = Flask(__name__)
 model = get_yolov7()
@@ -56,7 +57,24 @@ def addtodb(animalList):
     animal = DetectAnimals(animal_name = animalList[0], date_of_detection = date_of_detection, time_of_detection = time_of_detection)
     db.session.add(animal)
     db.session.commit()
+    message = animalList[0] + " is detected on " + date_of_detection + " at " + time_of_detection
+    sendMail(message)
 
+
+
+emailSender = "shrinathkorajkar@gmail.com"
+passwordSender = "wmhtjeqacuvuoqcg"
+emailReceiver = ["shrinathkorajkar@gmail.com", "rathodtejashwini46@gmail.com", "shriramhebbar47@gmail.com", "prathameshc656@gmail.com"]
+email = EmailMessage()
+email['From'] = emailSender
+email['To'] = ", ".join(emailReceiver)
+email['Subject'] = "Animal Detected"
+def sendMail(body):
+    email.set_content(body)
+    context = ssl._create_unverified_context()
+    with smtplib.SMTP_SSL("64.233.184.108", 465, context=context) as smtpserver:
+        smtpserver.login(emailSender, passwordSender)
+        smtpserver.sendmail(emailSender, emailReceiver, email.as_string())
 
 
 
@@ -155,4 +173,5 @@ def detectImg():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, port=8000, host='0.0.0.0')
+    app.run(debug=True, port=8000)
+    # app.run(debug=False, port=8000, host='0.0.0.0')

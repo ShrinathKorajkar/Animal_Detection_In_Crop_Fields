@@ -33,8 +33,8 @@ def image_to_base64(image):
     return base64Image
 
 def get_yolov7():
-    # model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7.pt', source='local')
-    model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7-tiny.pt', source='local')
+    model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7.pt', source='local')
+    # model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7-tiny.pt', source='local')
     return model
     
 def predict(model, image_path):
