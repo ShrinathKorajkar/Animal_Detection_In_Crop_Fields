@@ -63,7 +63,7 @@ def addtodb(animalList):
 
 
 emailSender = "shrinathkorajkar@gmail.com"
-passwordSender = "wmhtjeqacuvuoqcg"
+passwordSender = "tvrxrlykgoonpvxp"
 emailReceiver = ["shrinathkorajkar@gmail.com", "rathodtejashwini46@gmail.com", "shriramhebbar47@gmail.com", "prathameshc656@gmail.com"]
 email = EmailMessage()
 email['From'] = emailSender

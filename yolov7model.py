@@ -4,8 +4,6 @@ import numpy as np
 import os
 import cv2
 
-storedResults = []
-count = -1
 base = os.path.dirname(os.path.abspath(__file__))
 
 # Declaring some variables    
@@ -16,7 +14,7 @@ CELL_FILL = (0, 0, 200)
 CELL_BORDER = (0, 0, 255)
 _TEXT_THICKNESS_SCALING = 700.0
 _TEXT_SCALING = 520.0
-normalised_scaling=1.0
+normalised_scaling = 1.0
 
 def base64_to_image(base64_string):
     base64_data = base64_string.split(",")[1]
