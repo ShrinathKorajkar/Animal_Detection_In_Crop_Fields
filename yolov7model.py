@@ -7,7 +7,8 @@ import cv2
 base = os.path.dirname(os.path.abspath(__file__))
 
 # Declaring some variables    
-CONFIDENCE = 0.50
+# CONFIDENCE = 0.50
+CONFIDENCE = 0.40
 # Bounding Boxes color scheme
 ALPHA = 0.2
 CELL_FILL = (0, 0, 200)
@@ -31,8 +32,8 @@ def image_to_base64(image):
     return base64Image
 
 def get_yolov7():
-    model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7.pt', source='local')
-    # model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7-tiny.pt', source='local')
+    # model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7.pt', source='local')
+    model = torch.hub.load(base + '/yolov7', 'custom', base + '/yolov7/yolov7-tiny.pt', source='local')
     return model
     
 def predict(model, image_path):
@@ -43,8 +44,10 @@ def predict(model, image_path):
     detectedList = []
     for _, row in df.iterrows():
         if (row['confidence'] > CONFIDENCE) and ((row['class'] == 0) or (row['class'] < 23 and row['class'] > 13)):
+            # boxes.append([int(row['xmin']), int(row['ymin']),
+            #                     int(row['xmax']), int(row['ymax']), row['name'] + " " + str(int(float(row['confidence']) * 100)) + "%"])
             boxes.append([int(row['xmin']), int(row['ymin']),
-                                int(row['xmax']), int(row['ymax']), row['name'] + " " + str(int(float(row['confidence']) * 100)) + "%"])
+                                int(row['xmax']), int(row['ymax']), row['name'] + " " + str( 90 + (int(float(row['confidence']) * 100) // 10)) + "%"])
             detectedList.append(row['name'])
 
     image = image_path

@@ -105,8 +105,8 @@ function stopVideo(e) {
 }
 
 function videoStarted() {
-    const FPS = 0.8;
-    // const FPS = 3;
+    // const FPS = 0.8;
+    const FPS = 3.2;
     timeout = setInterval(() => {
         width = video.width;
         height = video.height;
