@@ -22,4 +22,44 @@ The project titled "Crop Guard - Animal Detection in Crop Fields" aims to develo
 
 
 # RESULTS
-![WebsiteVideo](output/Crop%20Guard%20Website.mp4){.video}
+**Index Page**
+
+![Index Page](output/IndexPage.png)
+
+
+**Register Page**
+
+![Register Page](output/RegisterPage.png)
+
+
+**Home Page**
+
+![Home Page](output/HomePage.png)
+
+
+**About Us Page**
+
+![About Us Page](output/AboutUs.png)
+
+
+**Detection Page**
+
+![Detection Page](output/DetectPage.png)
+
+
+**Live Detection**
+
+![Live Detection](output/DetectAnimal.png)
+
+
+**Report Page**
+
+![Report Page](output/ReportPage.png)
+
+
+**Download Report**
+
+![Download Report](output/Download_report.png)
+
+
+![ViewWebsiteVideo](output/Crop%20Guard%20Website.mp4)
